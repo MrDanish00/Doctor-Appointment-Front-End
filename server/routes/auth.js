@@ -44,15 +44,15 @@ router.post('/register',[
     body('phone', "Phone Number Should Be 10 Digits.").isLength({ min: 10 }),
 ], async (req, res) => {
 
-    const error = validationResult(req);
-    if(!error.isEmpty()){
-        return res.status(400).json({error: error.array()});
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({errors: errors.array()});
     }
 
     try {
         const checkMultipleUser1 = await UserSchema.findOne({ email : req.body.email });
         if(checkMultipleUser1){
-            return res.status(403).json({ error: "A User with this email address already exists" });
+            return res.status(403).json({ error: [{ msg: "A User with this email address already exists" }] });
         }
 
         const salt = await bcrypt.genSalt(10);
@@ -93,11 +93,12 @@ router.post('/login', [
     try {
       
         const theUser = await UserSchema.findOne({ email: req.body.email }); // <-- Change req.body.username to req.body.name
-            // console.log('my',theUser.name);
-        // req.session.name=theUser.name
-        req.session.email = req.body.email; // <-- Change req.body.username to req.body.name
+        console.log('my',theUser.name);
+        req.session.name=theUser.name
+        req.session.email = req.body.email;
+        // req.body.name = req.body.username; // <-- Change req.body.username to req.body.name
         console.log(req.session.email);
-        // console.log(req.session.name);
+        console.log(req.session.name);
         if (theUser) {
             let checkHash = await bcrypt.compare(req.body.password, theUser.password);
             if (checkHash) {
@@ -107,7 +108,7 @@ router.post('/login', [
                     }
                 }
                 const authtoken = jwt.sign(payload, JWT_SECRET);
-                return res.status(200).json({ authtoken });
+                return res.status(200).json({ authtoken , name: theUser.name });
             } else {
                 return res.status(403).json({ error: "Invalid Credentials" });
             }

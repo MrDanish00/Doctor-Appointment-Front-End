@@ -76,8 +76,8 @@ h2 {
 
 .button {
     transition: all 0.5s ease-in-out;
-    font-size: 1em;
-    padding: 1em;
+    font-size: 1.6rem;
+    padding: 1rem;
     width: 100%;
     border-radius: 5px;
     margin-top: 10px;
