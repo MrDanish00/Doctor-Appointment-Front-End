@@ -34,10 +34,11 @@ body{
 .nav-div-2 button{
     padding: 1rem 2rem;
     cursor: pointer;
-    border: 0.3rem solid rgb(78, 143, 169);
+    border: 0.3rem solid rgb(56, 154, 192);
     background-color: white;
     border-radius: 2.5rem;
     font-size: 2rem;
+
 }
 .nav-div-1{
     display: flex;
