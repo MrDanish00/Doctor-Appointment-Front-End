@@ -65,14 +65,14 @@ function SignUp({showNotification, setName}){
         <form action="POST" onSubmit={register}>
 
 
-            <div className="login-div">
+            <div className="signup-div">
                 <h1>Sign Up</h1>
-                <div className="login-div-1">
+                <div className="signup-div-1">
                     <p>Already a Member? </p>
                     <a href="/login">Login</a><br /><br />
                 </div><br />
-            <div className="login-form">
-                <label htmlFor="email">Role:</label><br />
+            <div className="signup-form">
+                <label htmlFor="email" id="role-label">Role:</label><br />
                     <select name="role" id="role" className="list-box" defaultValue="">
                         <option value="" disabled>Select a Role</option>
                         <option value="doctor">Doctor</option>
@@ -80,18 +80,17 @@ function SignUp({showNotification, setName}){
                     </select><br /><br />
 
 
-                <label htmlFor="name">Name:</label><br />
-                <input type="text" value={name} onChange={(e)=> setLocalName(e.target.value)} name="name" id="name" placeholder="Enter your name" required /><br /><br />
+                <label htmlFor="name">Name:</label>
+                <input type="text" value={name} onChange={(e)=> setLocalName(e.target.value)} name="name" id="name" placeholder="Enter your name" required />
 
-                <label htmlFor="phone">Phone:</label><br />
-                <input type="tel" value={phone}  name="phone" id="phone" onChange={(e)=>setPhone(e.target.value)} maxLength={10} placeholder="Enter your phone number" required /><br /><br />
+                <label htmlFor="phone">Phone:</label>
+                <input type="tel" value={phone}  name="phone" id="phone" onChange={(e)=>setPhone(e.target.value)} maxLength={10} placeholder="Enter your phone number" required />
 
-                <label htmlFor="email">Email:</label><br />
-                <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" placeholder="Enter your email" required /><br /><br />
+                <label htmlFor="email">Email:</label>
+                <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" placeholder="Enter your email" required />
 
-                <label htmlFor="password">Password:</label><br />
-                <input type="password" name="password" value={password} onChange={(e)=> setPassword(e.target.value)} id="password" placeholder="Enter your password" required /><br /><br /><br />
-
+                <label htmlFor="password">Password:</label>
+                <input type="password" name="password" value={password} onChange={(e)=> setPassword(e.target.value)} id="password" placeholder="Enter your password" required />
                 {errors && Array.isArray(errors) && errors.map((err, index) => (
                     <p key={index} style={{ color: 'red' }}>{err.msg}</p>
                 ))}
@@ -99,9 +98,9 @@ function SignUp({showNotification, setName}){
 
 
 
-                <button className="login-btn">Submit</button><br /><br />
-                <button className="reset-btn">Reset</button><br /><br />
-                <a className="htmlForget-password" href="#">Forget Password?</a>
+                <button className="signup-btn">Submit</button><br />
+                <button className="reset-btn">Reset</button><br />
+                <a className="frget-password" href="#">Forget Password?</a>
             </div>
             </div>
         </form>

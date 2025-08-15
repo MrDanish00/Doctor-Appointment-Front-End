@@ -49,9 +49,9 @@ function NavBar({showNotification,isLogged, setIsLogged, name}) {
 
                 <div className="nav-div" id="nav-menu">
                     <ul className="nav-items">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/Doctor-Appointment-Front-End/">Home</a></li>
                         <li><a href="#">Appointments</a></li>
-                        <li><a href="#">Health Blogs</a></li>
+                        <li><a href="/Doctor-Appointment-Front-End/instant-consultation">Instant Consults</a></li>
                         <li><a href="#">Reviews</a></li>
                         {/* <button onClick={setIsLogged(true)}>check</button> */}
                     </ul>
@@ -69,8 +69,8 @@ function NavBar({showNotification,isLogged, setIsLogged, name}) {
                     ) : (
                         <>
                         <div className="nav-div-2">
-                            <Link to={"/signup"}> <button>Sign Up</button></Link>
-                            <Link to={"/login"}><button>Login</button></Link>
+                            <Link to={"/Doctor-Appointment-Front-End/signup"}> <button>Sign Up</button></Link>
+                            <Link to={"/Doctor-Appointment-Front-End/login"}><button>Login</button></Link>
                         </div>
                         <div className="hamburger" id="hamburger">
                             <i className="fas fa-bars"></i>

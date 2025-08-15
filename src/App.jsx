@@ -7,6 +7,8 @@ import SignUp from './Components/Sign_Up/signup';
 import Login from './Components/Login/login';
 import Notification from "./Components/Notification/Notification";
 import Services from './Components/Services/services';
+import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation.jsx"
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,10 +35,11 @@ function App() {
             <NavBar isLogged={isLogged} setIsLogged={setIsLogged} showNotification={showNotification} name={name}/>
             <Notification message={notification.message} show={notification.show} />
             <Routes >
-                <Route path='/' element={<LandingPage/>} isLogged={isLogged} setIsLogged={setIsLogged}/>
-                <Route path='/signup' element={<SignUp showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}/>}/>
-                <Route path='/login' element={<Login showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
-                <Route path='/services' element={<Services />} />
+                <Route path='/Doctor-Appointment-Front-End/' element={<LandingPage/>} isLogged={isLogged} setIsLogged={setIsLogged}/>
+                <Route path='/Doctor-Appointment-Front-End/signup' element={<SignUp showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}/>}/>
+                <Route path='/Doctor-Appointment-Front-End/login' element={<Login showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
+                <Route path='/Doctor-Appointment-Front-End/services' element={<Services />} />
+                <Route path="/Doctor-Appointment-Front-End/instant-consultation" element={<InstantConsultation />} />
             </Routes>
         </BrowserRouter>
       </div>

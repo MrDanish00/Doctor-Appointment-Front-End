@@ -28,7 +28,7 @@ function Login({showNotification, isLogged, setIsLogged, setName}){
             setName(json.name);
             showNotification("User Logged In Successfully!");
           setTimeout(() => {
-            navigate("/");
+            navigate("/Doctor-Appointment-Front-End/");
           }, 2000);}
            else {
             // Properly handle errors as an array
@@ -44,6 +44,8 @@ function Login({showNotification, isLogged, setIsLogged, setName}){
             }
         }
     };
+
+
     return(
         <>
         <form action="POST" onSubmit={login}>
@@ -64,9 +66,11 @@ function Login({showNotification, isLogged, setIsLogged, setName}){
                     {errors && Array.isArray(errors) && errors.map((err, index) => (
                         <p key={index} style={{ color: 'red' }}>{err.msg}</p>
                     ))}
+                    <div>
+                    <button className="login-btn">Login</button>
+                    <button className="reset-btn">Reset</button>
 
-                    <button className="login-btn">Login</button><br /><br />
-                    <button className="reset-btn">Reset</button><br /><br />
+                    </div>
                     <a className="forget-password" href="#">Forget Password?</a>
                     
                 </div>
