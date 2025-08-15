@@ -2,11 +2,22 @@ import { Link, Navigate } from "react-router-dom";
 import SignUp from "../Sign_Up/signup";
 import "./navbar.css";
 import { useState, useEffect } from "react";
-
+import { NavLink } from "react-router-dom";
 
 function NavBar({showNotification,isLogged, setIsLogged, name}) {
     const [email, setEmail] = useState("");
     const [userName, setUserName] = useState("");
+    // const links = document.querySelectorAll('.nav-link');
+
+    // links.forEach(link => {
+    //     link.addEventListener('click', () => {
+    //         // Remove active class from all
+    //         links.forEach(l => l.classList.remove('active'));
+    //         // Add active class to clicked one
+    //         link.classList.add('active');
+    //     });
+    // });
+
     // const [name, setName] = useState("");
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
@@ -49,10 +60,11 @@ function NavBar({showNotification,isLogged, setIsLogged, name}) {
 
                 <div className="nav-div" id="nav-menu">
                     <ul className="nav-items">
-                        <li><a href="/Doctor-Appointment-Front-End/">Home</a></li>
-                        <li><a href="#">Appointments</a></li>
-                        <li><a href="/Doctor-Appointment-Front-End/instant-consultation">Instant Consults</a></li>
-                        <li><a href="#">Reviews</a></li>
+                    
+                        <li><NavLink to={"/Doctor-Appointment-Front-End/"}end className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Home</NavLink></li>
+                        <li><NavLink to="/Doctor-Appointment-Front-End/appointment" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Appointments</NavLink></li>
+                        <li><NavLink to="/Doctor-Appointment-Front-End/instant-consultation" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Instant Consults</NavLink></li>
+                        <li><NavLink to="/Doctor-Appointment-Front-End/reviews" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Reviews</NavLink></li>
                         {/* <button onClick={setIsLogged(true)}>check</button> */}
                     </ul>
                     {isLogged ? (

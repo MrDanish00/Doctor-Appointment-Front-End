@@ -7,12 +7,18 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .nav-bar{
-    position: static;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 2rem;
     padding: 1rem 3rem;
+    z-index: 1500;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
 }
 .nav-div{
     display: flex;
@@ -33,12 +39,16 @@ body{
     text-decoration: none;
     color: black;
     border-bottom: 1px solid transparent;
-    transition: all 0.5s;
+    transition: all 0.3s;
+}
+.nav-link:hover{
+    color: rgb(45,85,200);
+}
+.nav-link.active {
+    border-bottom: 2px solid rgb(45,85,200);
+    color: rgb(45,85,200);
 }
 
-.nav-items li a:hover{
-    border-bottom: 1px solid black;
-}
 
 
 .nav-div-2 button{

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import './DoctorCardIC.css';
-import AppointmentFormIC from '../AppointmentFormIC/AppointmentFormIC.jsx'
+import './DoctorCard.css';
+
 import { v4 as uuidv4 } from 'uuid';
+import AppointmentForm from './AppointmentForm';
 
 
-const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => {
+const DoctorCard = ({ name, speciality, experience, ratings, profilePic, showNotification, showRedNotification }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
@@ -17,6 +18,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
     setAppointments(updatedAppointments);
+    showRedNotification("Appointment Cancelled!")
   };
 
   const handleFormSubmit = (appointmentData) => {
@@ -26,6 +28,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
     };
     const updatedAppointments = [...appointments, newAppointment];
     setAppointments(updatedAppointments);
+    showNotification("Appointment Booked Successfully!")
     setShowModal(false);
   };
 
@@ -53,8 +56,8 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
 
       <div className="doctor-card-options-container">
        <Popup
-          overlayStyle={{marginTop:"7rem"}}
-          style={{ backgroundColor: '#FFFFFF' }}
+          style={{ backgroundColor: '#FFFFFF', position:"absolute"}}
+          overlayStyle={{ marginTop:"7rem", width:"100vw" }}
           trigger={
             <button className={`book-appointment-btn ${appointments.length > 0 ? 'cancel-appointment' : ''}`}>
               {appointments.length > 0 ? (
@@ -70,7 +73,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
           onClose={() => setShowModal(false)}
         >
           {(close) => (
-            <div className="doctorbg" style={{ height: '70vh', overflow: 'scroll', marginTop:"5rem" }}>
+            <div className="doctorbg" style={{height: '70vh', overflow: 'scroll', marginTop:"5rem" }}>
               <div>
                 <div className="doctor-card-profile-image-container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"> <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/> </svg>
@@ -87,15 +90,20 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
                 <>
                   <h3 style={{ textAlign: 'center' }}>Appointment Booked!</h3>
                   {appointments.map((appointment) => (
-                    <div className="bookedInfo" key={appointment.id}>
-                      <p>Name: {appointment.name}</p>
-                      <p>Phone Number: {appointment.phoneNumber}</p>
-                      <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
-                    </div>
-                  ))}
+                    
+
+                        <div className="bookedInfo" style={{textAlign:"center",boxShadow:"0px 2px 2px ",margin:"12rem auto",border:"1px solid",borderRadius:"1.5rem",width:"40%",padding:"1.5rem"}} key={appointment.id}>
+                          <p style={{fontSize:"1.8rem"}}><b>Name:</b> {appointment.name}</p>
+                          <p style={{fontSize:"1.8rem"}}><b>Ph No:</b> {appointment.phoneNumber}</p>
+                          <p style={{fontSize:"1.8rem"}}><b>Date:</b> {appointment.date}</p>
+                          <p style={{fontSize:"1.8rem"}}><b>Time:</b> {appointment.time}</p>
+                          <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
+                        </div>
+                
+                      ))}
                 </>
               ) : (
-                <AppointmentFormIC doctorName={name} doctorSpeciality={speciality} onSubmit={handleFormSubmit} />
+                <AppointmentForm doctorName={name} doctorSpeciality={speciality} onSubmit={handleFormSubmit} />
               )}
             </div>
           )}
@@ -105,4 +113,4 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
   );
 };
 
-export default DoctorCardIC;
+export default DoctorCard;

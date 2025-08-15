@@ -8,7 +8,9 @@ import Login from './Components/Login/login';
 import Notification from "./Components/Notification/Notification";
 import Services from './Components/Services/services';
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation.jsx"
-
+import FindDoctor from './Components/Appointment/FindDoctor.jsx';
+import Appointment from './Components/Appointment/appointment.jsx';
+import RedNotification from './Components/Notification/redNotification.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +30,12 @@ function App() {
       setNotification({ show: false, message: "" });
     }, duration);
   };
+  const showRedNotification = (msg, duration = 2000) => {
+    setNotification({ show: true, message: msg });
+    setTimeout(() => {
+      setNotification({ show: false, message: "" });
+    }, duration);
+  };
   return (
     <>
       <div className="App">
@@ -40,6 +48,7 @@ function App() {
                 <Route path='/Doctor-Appointment-Front-End/login' element={<Login showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
                 <Route path='/Doctor-Appointment-Front-End/services' element={<Services />} />
                 <Route path="/Doctor-Appointment-Front-End/instant-consultation" element={<InstantConsultation />} />
+                <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment showRedNotification={showRedNotification} showNotification={showNotification}/>} />
             </Routes>
         </BrowserRouter>
       </div>

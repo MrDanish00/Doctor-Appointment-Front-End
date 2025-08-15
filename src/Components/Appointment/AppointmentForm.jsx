@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
+const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [date,setDate] = useState("");
-    const [time,setTime] = useState("");
+    const [date, setDate] = useState("");
+    const [time, setTime] = useState("");
     const [selectedSlot, setSelectedSlot] = useState(null);
   
     const handleSlotSelection = (slot) => {
@@ -42,10 +42,29 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
             required
           />
         </div>
-        
+        <div className="form-group">
+          <label htmlFor="date"  style={{fontSize:"1.5rem"}}>Date of Appointment:</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="time" style={{fontSize:"1.5rem"}}>Book Time Slot:</label>
+          <input
+            type="time"
+            id="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            required
+          />
+        </div>
         <button type="submit">Book Now</button>
       </form>
     );
   };
 
-export default AppointmentFormIC;
+export default AppointmentForm;
