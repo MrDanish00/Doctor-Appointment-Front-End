@@ -69,7 +69,7 @@ function SignUp({showNotification, setName}){
                 <h1>Sign Up</h1>
                 <div className="signup-div-1">
                     <p>Already a Member? </p>
-                    <a href="/login">Login</a><br /><br />
+                    <a href="/Doctor-Appointment-Front-End/login">Login</a><br /><br />
                 </div><br />
             <div className="signup-form">
                 <label htmlFor="email" id="role-label">Role:</label><br />

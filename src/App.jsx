@@ -12,6 +12,7 @@ import FindDoctor from './Components/Appointment/FindDoctor.jsx';
 import Appointment from './Components/Appointment/appointment.jsx';
 import RedNotification from './Components/Notification/redNotification.jsx';
 import AptNotification from './Components/AptNotification/AptNotification.jsx';
+import ReviewForm from './Components/ReviewForm/ReviewForm.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,8 +20,13 @@ function App() {
     return sessionStorage.getItem("auth-token") ? true : false;
   });
   const [name, setName] = useState(() => {
-    return sessionStorage.getItem("name") || "";
+    return localStorage.getItem("name") || "";
   });
+  useEffect(() => {
+    if (name) {
+      localStorage.setItem("name", name);
+    }
+  }, [name]);
   const [notification, setNotification] = useState({
     show: false,
     message: "",
@@ -43,10 +49,7 @@ function App() {
   });
 
 
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("appointments")) || [];
-    setAppointments(stored);
-  }, []);
+
 
   const saveAppointments = (updated) => {
     setAppointments(updated);
@@ -65,7 +68,8 @@ function App() {
                 <Route path='/Doctor-Appointment-Front-End/login' element={<Login showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
                 <Route path='/Doctor-Appointment-Front-End/services' element={<Services />} />
                 <Route path="/Doctor-Appointment-Front-End/instant-consultation" element={<InstantConsultation />} />
-                <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment appointments={appointments} setAppointments={setAppointments} showRedNotification={showRedNotification} showNotification={showNotification}/>} />
+                <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment appointments={appointments} setAppointments={saveAppointments} showRedNotification={showRedNotification} showNotification={showNotification}/>} />
+                <Route path='/Doctor-Appointment-Front-End/reviews' element={<ReviewForm appointments={appointments} setAppointments={saveAppointments} showNotification={showNotification}/>} />
             </Routes>
         </BrowserRouter>
       </div>

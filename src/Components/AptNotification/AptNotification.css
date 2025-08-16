@@ -3,4 +3,5 @@
     overflow-y: scroll;
     background-color: rgb(56, 153, 244);
     color: white;
+    box-shadow: 2px 2px 4px black;
 }

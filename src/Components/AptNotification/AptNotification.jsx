@@ -35,7 +35,7 @@ const AptNotification = ({ appointments, setAppointments }) => {
         <div className="apt-notify" style={{
           position:"fixed", top:"50%", right:"1rem", fontSize:"1.6rem",
           border:"1px solid #ccc", padding:"2rem", width:"30%", height:"40%",
-          borderRadius:"0.5rem", boxShadow:"0px 4px 6px rgba(0,0,0,0.2)" 
+          borderRadius:"0.5rem", boxShadow:"0px 4px 6px rgba(0,0,0,0.5)" 
         }}>
 
           {appointments && appointments.length > 0 ? (

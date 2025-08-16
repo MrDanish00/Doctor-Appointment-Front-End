@@ -82,13 +82,14 @@ body{
 }
 .logout-btn button{
     
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     cursor: pointer;
     border: 0.3rem solid rgb(58, 97, 215);
     background-color: white;
     color: rgb(58, 97, 215);
     border-radius: 2.5rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    transition: all 0.3s;
 
 }
 .nav-div-1{
