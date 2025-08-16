@@ -14,13 +14,14 @@ function FindDoctor({showNotification}){
     const [doctors, setDoctors] = useState([]);
     const [filteredDoctors, setFilteredDoctors] = useState([]);
     const [isSearched, setIsSearched] = useState(false);
+    const [searchText, setSearchText] = useState("");
     const navigate = useNavigate();
 
     const handleDoctorSelect = (speciality) => {
         setSearchDoctor(speciality);
         setHide(true);
         navigate(`/Doctor-Appointment-Front-End/appointment?speciality=${speciality}`);
-        window.location.reload();
+        // window.location.reload();
     }
 
     const getDoctorsDetails = () => {
@@ -34,7 +35,7 @@ function FindDoctor({showNotification}){
                 setFilteredDoctors(filtered);
                 
                 setIsSearched(true);
-                window.reload()
+                // window.reload()
             } else {
                 setFilteredDoctors([]);
                 setIsSearched(false);
@@ -44,7 +45,7 @@ function FindDoctor({showNotification}){
         .catch(err => console.log(err));
     }
 
-    const handleSearch = (searchText) => {
+    const handleSearch = () => {
     
             if (searchText === '') {
                 setFilteredDoctors([]);
@@ -60,7 +61,7 @@ function FindDoctor({showNotification}){
                     
                 setFilteredDoctors(filtered);
                 setIsSearched(true);
-                window.location.reload()
+                // window.location.reload()
             }
         };
         
@@ -86,8 +87,8 @@ function FindDoctor({showNotification}){
                 
                             <img className="doctor-img"  src={doctorImage} alt="Doctor Image" />
                         <div style={{display:"block",width:"100%"}}>
-                            <input className="search-doctor" type="text" onFocus={()=>setHide(false)} onBlur={()=>setHide(true)} id="apt-search" name="" placeholder="Search doctors by speciality" />
-                            <button className="search-doctor-btn">&#128269;</button><br /><br />
+                            <input className="search-doctor" type="text" onChange={(e)=>setSearchText(e.target.value)} onFocus={()=>setHide(false)} onBlur={()=>setHide(true)} id="apt-search" name="" placeholder="Search doctors by speciality" />
+                            <button className="search-doctor-btn" onClick={handleSearch}>&#128269;</button><br /><br />
                         </div>
                             <div className="apt-doctor-input-results" hidden={hide}>
                             {

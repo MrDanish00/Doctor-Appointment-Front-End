@@ -189,3 +189,16 @@ button:hover {
   cursor: pointer;
   /* color: rgb(249, 60, 60); */
 }
+.bookedInfo{
+  width: 45%;
+}
+@media (max-width:500px){
+  .bookedInfo{
+    width: auto;
+  }
+}
+@media (min-width:500px) and (max-width:800px){
+  .bookedInfo{
+    width: 80%;
+  }
+}

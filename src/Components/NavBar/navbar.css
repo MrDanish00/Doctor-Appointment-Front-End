@@ -49,7 +49,10 @@ body{
     color: rgb(45,85,200);
 }
 
-
+.nav-div-2{
+    display: flex;
+    gap: 1rem;
+}
 
 .nav-div-2 button{
 
@@ -71,21 +74,21 @@ body{
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 1.5rem;
+    gap: 0.3rem;
 }
 .logout-btn h3{
-    width: 50%;
+    width: 40%;
     font-size: 1.6rem;
 }
 .logout-btn button{
     
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     cursor: pointer;
     border: 0.3rem solid rgb(58, 97, 215);
     background-color: white;
     color: rgb(58, 97, 215);
     border-radius: 2.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 
 }
 .nav-div-1{

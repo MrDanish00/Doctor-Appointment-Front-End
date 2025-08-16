@@ -1,0 +1,6 @@
+.apt-notify{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: rgb(56, 153, 244);
+    color: white;
+}
