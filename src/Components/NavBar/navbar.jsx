@@ -1,12 +1,13 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import SignUp from "../Sign_Up/signup";
 import "./navbar.css";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-function NavBar({showNotification,isLogged, setIsLogged, name}) {
+function NavBar({showNotification,isLogged, setIsLogged, name,setName}) {
     const [email, setEmail] = useState("");
     const [userName, setUserName] = useState("");
+    const navigate = useNavigate();
     // const links = document.querySelectorAll('.nav-link');
 
     // links.forEach(link => {
@@ -37,6 +38,7 @@ function NavBar({showNotification,isLogged, setIsLogged, name}) {
           }
         }
         setEmail('');
+        navigate("/Doctor-Appointment-Front-End/");
         
     }
     useEffect(() => { 
@@ -64,7 +66,13 @@ function NavBar({showNotification,isLogged, setIsLogged, name}) {
                         <li><NavLink to={"/Doctor-Appointment-Front-End/"}end className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Home</NavLink></li>
                         <li><NavLink to="/Doctor-Appointment-Front-End/appointment" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Appointments</NavLink></li>
                         <li><NavLink to="/Doctor-Appointment-Front-End/instant-consultation" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Instant Consults</NavLink></li>
-                        <li><NavLink to="/Doctor-Appointment-Front-End/reviews" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Reviews</NavLink></li>
+                        <li>
+                            {isLogged ? (
+                                <NavLink to="/Doctor-Appointment-Front-End/reviews" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Reviews</NavLink>
+                            ) : (
+                                <NavLink to="/Doctor-Appointment-Front-End/login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Reviews</NavLink>
+                            )}
+                        </li>
                         {/* <button onClick={setIsLogged(true)}>check</button> */}
                     </ul>
                     {isLogged ? (

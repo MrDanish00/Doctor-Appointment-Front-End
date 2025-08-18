@@ -19,6 +19,9 @@ function App() {
   const [isLogged, setIsLogged] = useState(() => {
     return sessionStorage.getItem("auth-token") ? true : false;
   });
+
+  const email = sessionStorage.getItem("email");
+
   const [name, setName] = useState(() => {
     return localStorage.getItem("name") || "";
   });
@@ -44,32 +47,36 @@ function App() {
     }, duration);
   };
   const [appointments, setAppointments] = useState(() => {
-  const stored = localStorage.getItem("appointments");
-    return stored ? JSON.parse(stored) : [];
+    if (!email) return []; 
+    const stored = localStorage.getItem(`appointments_${email}`);
+    const parsed = stored ? JSON.parse(stored) : [];
+    return parsed.filter((apt) => apt && apt.doctorName); // remove nulls
   });
+
 
 
 
 
   const saveAppointments = (updated) => {
     setAppointments(updated);
-    localStorage.setItem("appointments", JSON.stringify(updated));
+    const email = sessionStorage.getItem("email");
+    localStorage.setItem(`appointments_${email}`, JSON.stringify(updated));
   };
   return (
     <>
       <div className="App">
         <BrowserRouter>
-            <NavBar isLogged={isLogged} setIsLogged={setIsLogged} showNotification={showNotification} name={name}/>
+            <NavBar isLogged={isLogged} setIsLogged={setIsLogged} showNotification={showNotification} name={name} setName={setName}/>
             <Notification message={notification.message} show={notification.show} />
-            <AptNotification  appointments={appointments} setAppointments={saveAppointments} />
+            <AptNotification isLogged={isLogged} setIsLogged={setIsLogged}  appointments={appointments} setAppointments={saveAppointments} />
             <Routes >
                 <Route path='/Doctor-Appointment-Front-End/' element={<LandingPage/>} isLogged={isLogged} setIsLogged={setIsLogged}/>
                 <Route path='/Doctor-Appointment-Front-End/signup' element={<SignUp showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}/>}/>
                 <Route path='/Doctor-Appointment-Front-End/login' element={<Login showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
                 <Route path='/Doctor-Appointment-Front-End/services' element={<Services />} />
                 <Route path="/Doctor-Appointment-Front-End/instant-consultation" element={<InstantConsultation />} />
-                <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment appointments={appointments} setAppointments={saveAppointments} showRedNotification={showRedNotification} showNotification={showNotification}/>} />
-                <Route path='/Doctor-Appointment-Front-End/reviews' element={<ReviewForm appointments={appointments} setAppointments={saveAppointments} showNotification={showNotification}/>} />
+                <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showRedNotification={showRedNotification} showNotification={showNotification}/>} />
+                <Route path='/Doctor-Appointment-Front-End/reviews' element={<ReviewForm isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showNotification={showNotification}/>} />
             </Routes>
         </BrowserRouter>
       </div>

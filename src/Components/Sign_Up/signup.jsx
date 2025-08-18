@@ -43,7 +43,7 @@ function SignUp({showNotification, setName}){
 
         showNotification("User Registered Successfully!");
       setTimeout(() => {
-        navigate("/login");
+        navigate("/Doctor-Appointment-Front-End/login");
       }, 2000);}
        else {
         // Properly handle errors as an array

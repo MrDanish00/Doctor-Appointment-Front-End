@@ -29,6 +29,7 @@ const DoctorCard = ({
       id: uuidv4(),
       doctorName: name,
       doctorSpeciality: speciality,
+      review: [],
       ...appointmentData,
     };
 
@@ -49,7 +50,7 @@ const DoctorCard = ({
 
   };
   const hasAppointmentWithThisDoctor = appointments.some(
-    (apt) => apt.doctorName === name
+    (apt) => apt && apt.doctorName === name
   );
 
   return (

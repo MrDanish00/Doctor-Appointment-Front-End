@@ -107,3 +107,17 @@ thead{
   .stars label:hover ~ label {
     color: gold;
   }
+  .see-rev-btn-1{
+    background-color: rgb(217, 59, 59);
+    transition: all 0.5s;
+  }
+  .see-rev-btn-2{
+    transition: all 0.5s;
+  }
+  .see-rev-btn-1:hover{
+    background-color:rgb(190, 56, 67);
+  }
+
+  .see-rev-btn-2:hover{
+    background-color: rgb(45,85,200);
+  }

@@ -1,37 +1,41 @@
 import { useState } from "react";
 import "./AptNotification.css";
-const AptNotification = ({ appointments, setAppointments }) => {
+const AptNotification = ({isLogged, setIsLogged , appointments, setAppointments }) => {
   const [open, setOpen] = useState(false);
-
+  const email = localStorage.getItem("email");
   const cancelAppointment = (id) => {
     const updated = appointments.filter((apt) => apt.id !== id);
     setAppointments(updated);
-    localStorage.setItem("appointments", JSON.stringify(updated)); // keep storage updated
+    localStorage.setItem(`appointments_${email}`, JSON.stringify(updated)); // keep storage updated
   };
 
   return (
     <div>
       {/* Floating button (always visible) */}
-      <button 
-        style={{
-          position: "fixed",
-          bottom: "2%",
-          right: "2%",
-          padding: "1.5rem",
-          background: "#007bff",
-          color: "white",
-          borderRadius: "2rem",
-          border: "none",
-          cursor: "pointer",
-          zIndex: 9999
-        }}
-        onClick={() => setOpen(!open)}
-      >
-        🔔 Notifications ({appointments?.length || 0})
-      </button>
+      {isLogged && (
+        <button
+          style={{
+            position: "fixed",
+            bottom: "2%",
+            right: "2%",
+            padding: "1.5rem",
+            background: "#007bff",
+            color: "white",
+            borderRadius: "2rem",
+            border: "none",
+            cursor: "pointer",
+            zIndex: 9999
+          }}
+          onClick={() => setOpen(!open)}
+        >
+          🔔 Notifications ({appointments?.length || 0})
+        </button>
+      )}
+      
 
       {/* Notification Panel */}
-      {open && (
+
+      {isLogged && open && (
         <div className="apt-notify" style={{
           position:"fixed", top:"50%", right:"1rem", fontSize:"1.6rem",
           border:"1px solid #ccc", padding:"2rem", width:"30%", height:"40%",
