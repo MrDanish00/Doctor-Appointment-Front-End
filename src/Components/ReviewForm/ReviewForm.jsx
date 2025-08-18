@@ -49,6 +49,7 @@ function ReviewForm({isLogged, setIsLogged,appointments,setAppointments,showNoti
             }
             return apt;
         });
+        const email = sessionStorage.getItem("email");
         console.log("Apt Object: ",updatedApt);
         localStorage.setItem(`appointments_${email}`,JSON.stringify(updatedApt)) || [];
         setShowReviewForm(false);
@@ -100,12 +101,12 @@ function ReviewForm({isLogged, setIsLogged,appointments,setAppointments,showNoti
                                     <td className="table-data">{apt.doctorName}</td>
                                     <td className="table-data">{apt.doctorSpeciality}</td>
                                     <td className="table-data">
-                                    {(!apt.review) && !apt.review.name && (
+                                    {(!apt.review?.name) && (
                                         <button onClick={() => renderReviewForm(apt.id)}>Give Review</button>
                                     )}
                                     </td>
                                     <td className="table-data">
-                                    {apt.review && apt.review.name && (
+                                    {apt.review?.name && (
                                         <button onClick={() =>
                                             seeReviewForm(apt.id, apt.review.name, apt.review.reviewText, apt.review.rating)
                                         }>

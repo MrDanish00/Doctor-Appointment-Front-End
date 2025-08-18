@@ -21,7 +21,7 @@ function App() {
   });
 
   const email = sessionStorage.getItem("email");
-
+ 
   const [name, setName] = useState(() => {
     return localStorage.getItem("name") || "";
   });
@@ -46,13 +46,18 @@ function App() {
       setNotification({ show: false, message: "" });
     }, duration);
   };
-  const [appointments, setAppointments] = useState(() => {
-    if (!email) return []; 
-    const stored = localStorage.getItem(`appointments_${email}`);
-    const parsed = stored ? JSON.parse(stored) : [];
-    return parsed.filter((apt) => apt && apt.doctorName); // remove nulls
-  });
+  const [appointments, setAppointments] = useState([]);
 
+  useEffect(() => {
+  if (!email) {
+    setAppointments([]); // clear appointments on logout
+    return;
+  }
+
+  const stored = localStorage.getItem(`appointments_${email}`);
+  const parsed = stored ? JSON.parse(stored) : [];
+  setAppointments(parsed.filter((apt) => apt && apt.doctorName)); // remove nulls
+}, [email]);
 
 
 
