@@ -113,7 +113,7 @@ function NavBar({showNotification,isLogged, setIsLogged, name,setName}) {
             {showProfile && (
                 <div className="profile-div">
                     <a href="/Doctor-Appointment-Front-End/profile" style={{fontSize:"1.6rem",margin:"0.4rem"}}>Your Profile</a>
-                    <a href="#" style={{fontSize:"1.6rem",margin:"0.4rem"}}>Your Reports</a>
+                    <a href="/Doctor-Appointment-Front-End/reports" style={{fontSize:"1.6rem",margin:"0.4rem"}}>Your Reports</a>
                 </div>
             )}
         </>

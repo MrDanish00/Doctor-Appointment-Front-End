@@ -44,6 +44,7 @@ html{
     background-color: rgb(238, 238, 238);
     padding: 5rem;
     border-radius: 1rem;
+    position: relative;
 }
 
 @media (max-width:300px){

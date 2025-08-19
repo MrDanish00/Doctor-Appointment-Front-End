@@ -121,8 +121,8 @@ function ProfileCard({showNotification,isLogged, setIsLogged,name,setName,appoin
     return(
         <>
     
-        <div className="profile-container">
       {editMode ? (
+        <div className="profile-container">
         <form onSubmit={handleSubmit}>
           <label>
             Email
@@ -150,10 +150,11 @@ function ProfileCard({showNotification,isLogged, setIsLogged,name,setName,appoin
               value={updatedDetails.phone} 
               onChange={handleInputChange}
             />
-          </label>
+          </label><br /><br />
           {/* Create similar logic for displaying and editing name and phone from userDetails */}
-          <button type="submit" onClick={(e)=>handleSubmit(e)}>Save</button>
+          <button type="submit" className="edit-btn" onClick={(e)=>handleSubmit(e)}>Save</button>
         </form>
+        </div>
       ) : (
             <div className="profile-card">
                 <div className="profile-card-inner">
@@ -166,7 +167,7 @@ function ProfileCard({showNotification,isLogged, setIsLogged,name,setName,appoin
                 </div>
             </div>
       )}
-    </div>
+
         </>
     )
 }

@@ -14,6 +14,7 @@ import RedNotification from './Components/Notification/redNotification.jsx';
 import AptNotification from './Components/AptNotification/AptNotification.jsx';
 import ReviewForm from './Components/ReviewForm/ReviewForm.jsx';
 import ProfileCard from './Components/ProfileCard/ProfileCard.jsx';
+import ReportsLayout from './Components/ReportsLayout/ReportsLayout.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -84,6 +85,7 @@ function App() {
                 <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showRedNotification={showRedNotification} showNotification={showNotification}/>} />
                 <Route path='/Doctor-Appointment-Front-End/reviews' element={<ReviewForm isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showNotification={showNotification}/>} />
                 <Route path='/Doctor-Appointment-Front-End/profile' element={<ProfileCard showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} name={name} setName={setName} appointments={appointments} setAppointments={saveAppointments}/>} />
+                <Route path='/Doctor-Appointment-Front-End/reports' element={<ReportsLayout showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} name={name} setName={setName} appointments={appointments} setAppointments={saveAppointments} />} />
             </Routes>
         </BrowserRouter>
       </div>
