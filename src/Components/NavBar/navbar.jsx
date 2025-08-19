@@ -3,10 +3,12 @@ import SignUp from "../Sign_Up/signup";
 import "./navbar.css";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import ProfileCard from "../ProfileCard/ProfileCard";
 
 function NavBar({showNotification,isLogged, setIsLogged, name,setName}) {
     const [email, setEmail] = useState("");
     const [userName, setUserName] = useState("");
+    const [showProfile,setShowProfile] = useState(false);
     const navigate = useNavigate();
     // const links = document.querySelectorAll('.nav-link');
 
@@ -52,7 +54,7 @@ function NavBar({showNotification,isLogged, setIsLogged, name,setName}) {
         }, [setIsLogged]);
     return (
         <>
-            <nav className="nav-bar">
+            <nav className="nav-bar" > 
                 <div className="nav-div-1">
                     <h1>StayHealthy</h1>
                     <i className="fas fa-user-md"></i>
@@ -70,7 +72,7 @@ function NavBar({showNotification,isLogged, setIsLogged, name,setName}) {
                             {isLogged ? (
                                 <NavLink to="/Doctor-Appointment-Front-End/reviews" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Reviews</NavLink>
                             ) : (
-                                <NavLink to="/Doctor-Appointment-Front-End/login" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Reviews</NavLink>
+                                <NavLink to="/Doctor-Appointment-Front-End/login" style={{color:"black",border:"none"}} className={"nav-link"}>Reviews</NavLink>
                             )}
                         </li>
                         {/* <button onClick={setIsLogged(true)}>check</button> */}
@@ -78,7 +80,7 @@ function NavBar({showNotification,isLogged, setIsLogged, name,setName}) {
                     {isLogged ? (
                         <>
                         <div className="logout-btn">
-                            <h3>Welcome, {name}</h3>
+                            <h3 style={{cursor:"pointer"}} onClick={()=>setShowProfile(!(showProfile))}>Welcome, {name}</h3>
                             <button onClick={handleLogout}>Log Out</button>
                         </div>
                         <div className="hamburger" id="hamburger">
@@ -108,6 +110,12 @@ function NavBar({showNotification,isLogged, setIsLogged, name,setName}) {
                     <li><a href="#">Reviews</a></li>
                 </ul>
             </nav><br /><br /><br /><br />
+            {showProfile && (
+                <div className="profile-div">
+                    <a href="/Doctor-Appointment-Front-End/profile" style={{fontSize:"1.6rem",margin:"0.4rem"}}>Your Profile</a>
+                    <a href="#" style={{fontSize:"1.6rem",margin:"0.4rem"}}>Your Reports</a>
+                </div>
+            )}
         </>
     )
 }

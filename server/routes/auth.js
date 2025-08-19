@@ -212,7 +212,8 @@ router.put('/user', [
         existingUser.name = req.body.name;
         existingUser.phone = req.body.phone;
         existingUser.updatedAt = Date();
-    
+        console.log(existingUser.name)
+        console.log(existingUser.phone)
         const updatedUser = await existingUser.save();
     
         const payload = {
