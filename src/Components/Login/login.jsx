@@ -53,7 +53,7 @@ function Login({showNotification, isLogged, setIsLogged, setName}){
             <div className="login-div">
                 <h1>Login</h1>
                 <div className="login-div-1">
-                    <p className="p-tag">Are you a new Member? </p>
+                    <p >Are you a new Member? </p>
                     <a className="a-tag" href="/Doctor-Appointment-Front-End/signup">Sign Up Here</a><br /><br />
                 </div><br />
                 <div className="login-form">

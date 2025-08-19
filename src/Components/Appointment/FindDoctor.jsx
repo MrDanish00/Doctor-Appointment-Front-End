@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 const initSpeciality = [
     'Dentist', 'Gynecologist/obstetrician', 'General Physician', 'Dermatologist', 'Ear-nose-throat (ent) Specialist', 'Homeopath', 'Ayurveda'
 ]
-function FindDoctor({showNotification}){
+function FindDoctor({showNotification,onSearch}){
     const [hide, setHide] = useState(true);
     const [searchDoctor, setSearchDoctor] = useState('');
     const [specialities, setSpecialities] = useState(initSpeciality);
@@ -14,7 +14,7 @@ function FindDoctor({showNotification}){
     const [doctors, setDoctors] = useState([]);
     const [filteredDoctors, setFilteredDoctors] = useState([]);
     const [isSearched, setIsSearched] = useState(false);
-    const [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState(""); 
     const navigate = useNavigate();
 
     const handleDoctorSelect = (speciality) => {
@@ -23,55 +23,9 @@ function FindDoctor({showNotification}){
         navigate(`/Doctor-Appointment-Front-End/appointment?speciality=${speciality}`);
         // window.location.reload();
     }
-
-    const getDoctorsDetails = () => {
-        fetch('https://api.npoint.io/9a5543d36f1460da2f63')
-        .then(res => res.json())
-        .then(data => {
-            if (searchParams.get('speciality')) {
-                // window.reload()
-                const filtered = data.filter(doctor => doctor.speciality.toLowerCase() === searchParams.get('speciality').toLowerCase());
-
-                setFilteredDoctors(filtered);
-                
-                setIsSearched(true);
-                // window.reload()
-            } else {
-                setFilteredDoctors([]);
-                setIsSearched(false);
-            }
-            setDoctors(data);
-        })
-        .catch(err => console.log(err));
-    }
-
-    const handleSearch = () => {
-    
-            if (searchText === '') {
-                setFilteredDoctors([]);
-                setIsSearched(false);
-                } else {
-                    
-                const filtered = doctors.filter(
-                    (doctor) =>
-                    // 
-                    doctor.speciality.toLowerCase().includes(searchText.toLowerCase())
-                    
-                );
-                    
-                setFilteredDoctors(filtered);
-                setIsSearched(true);
-                // window.location.reload()
-            }
-        };
-        
-        useEffect(() => {
-            getDoctorsDetails();
-            // const authtoken = sessionStorage.getItem("auth-token");
-            // if (!authtoken) {
-            //     navigate("/login");
-            // }
-        }, [searchParams])
+    const handleSearchClick = () => {
+     onSearch(searchText); // ✅ Call parent’s handleSearch
+  };
     return(
         <>
             <div className="appointment-div">
@@ -88,11 +42,11 @@ function FindDoctor({showNotification}){
                             <img className="doctor-img"  src={doctorImage} alt="Doctor Image" />
                         <div style={{display:"block",width:"100%"}}>
                             <input className="search-doctor" type="text" onChange={(e)=>setSearchText(e.target.value)} onFocus={()=>setHide(false)} onBlur={()=>setHide(true)} id="apt-search" name="" placeholder="Search doctors by speciality" />
-                            <button className="search-doctor-btn" onClick={handleSearch}>&#128269;</button><br /><br />
+                            <button className="search-doctor-btn" onClick={handleSearchClick}>&#128269;</button><br /><br />
                         </div>
                             <div className="apt-doctor-input-results" hidden={hide}>
                             {
-                                specialities.map(speciality => <div className="apt-doctor-result-item" key={speciality} onMouseDown={() => handleDoctorSelect(speciality)}>
+                                specialities.map(speciality => <div className="apt-doctor-result-item" key={speciality} onMouseDown={() => onSearch(speciality)}>
                                     <span>&#x1F50D;</span>
                                     <span>{speciality}</span>
                                     <span>SPECIALITY</span>
