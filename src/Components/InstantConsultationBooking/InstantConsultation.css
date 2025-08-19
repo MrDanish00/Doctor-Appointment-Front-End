@@ -21,6 +21,9 @@
     background-color: #fff;
 
 }
+.instant-text{
+    font-size: 2.5rem;
+}
 
 .search-results-container>h2 {
     text-align: left;

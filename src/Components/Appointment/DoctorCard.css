@@ -62,13 +62,14 @@
   }
   
   .book-appoinment-btn {
-    background-color: #3498db;
+    background-color: rgb(58, 97, 215);
     color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.5s;
   }
   
   .book-appoinment-btn div:nth-child(2) {
@@ -129,16 +130,15 @@
 .cancel-appointment-btn {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #f44336;
+  background-color: rgb(217, 59, 59);
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.5s ease;
 }
-
 .cancel-appointment-btn:hover {
-  background-color: #d63027;
+  background-color: rgb(200,45,59);
 }
 .appointment-form {
   max-width: 400px;
@@ -171,17 +171,17 @@ textarea {
 
 button {
   padding: 12px 20px;
-  background-color: #007bff;
+  background-color: rgb(58, 97, 215);
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  transition: all 0.5s;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
+
+
 
 
 .btnslot{

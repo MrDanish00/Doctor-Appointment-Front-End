@@ -81,7 +81,7 @@ function App() {
                 <Route path='/Doctor-Appointment-Front-End/signup' element={<SignUp showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}/>}/>
                 <Route path='/Doctor-Appointment-Front-End/login' element={<Login showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
                 <Route path='/Doctor-Appointment-Front-End/services' element={<Services />} />
-                <Route path="/Doctor-Appointment-Front-End/instant-consultation" element={<InstantConsultation />} />
+                <Route path="/Doctor-Appointment-Front-End/instant-consultation" element={<InstantConsultation appointments={appointments} setAppointments={saveAppointments} isLogged={isLogged} setIsLogged={setIsLogged} showNotification={showNotification}/>} />
                 <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showRedNotification={showRedNotification} showNotification={showNotification}/>} />
                 <Route path='/Doctor-Appointment-Front-End/reviews' element={<ReviewForm isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showNotification={showNotification}/>} />
                 <Route path='/Doctor-Appointment-Front-End/profile' element={<ProfileCard showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} name={name} setName={setName} appointments={appointments} setAppointments={saveAppointments}/>} />

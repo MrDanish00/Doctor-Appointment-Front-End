@@ -11,7 +11,8 @@ body{
 
 .signup-div{
     width: 50%;
-    margin: 11rem auto;
+    margin: auto;
+    margin-top: 15rem;
     background-color: rgb(240, 240, 240);
     text-align: center;
     font-size: 1.8rem;
