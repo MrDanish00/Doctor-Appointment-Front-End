@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import "./ReviewForm.css";
 import { useNavigate } from "react-router-dom";
 
@@ -187,11 +187,12 @@ function ReviewForm({isLogged, setIsLogged,appointments,setAppointments,showNoti
             <div className="review-form" onClick={() => setSeeReview(false)}>
               <div className="review-form-1" onClick={(e) => e.stopPropagation()}>
                 <h1>Review</h1>
-                <p><strong>Name:</strong> {reviewName}</p>
-                <p><strong>Review:</strong> {reviewText}</p>
-                <p><strong>Rating:</strong> {"★".repeat(reviewRating)}</p>
-                <button onClick={(e) => deleteReview(e, aptId)}>Delete</button>
-                <button onClick={() => setSeeReview(false)}>Close</button>
+                <p className="review-data"><strong>Name:</strong><br /> {reviewName}</p>
+                <p className="review-data"><strong>Review:</strong><br /> {reviewText}</p>
+                <p className="review-data"><strong>Rating:</strong> <p className="star-p">{"★".repeat(reviewRating)}</p></p>
+                
+                <button className="del-btn" onClick={(e) => deleteReview(e, aptId)}>Delete</button>
+                <button className="close-btn" onClick={() => setSeeReview(false)}>Close</button>
               </div>
             </div>
           )}
