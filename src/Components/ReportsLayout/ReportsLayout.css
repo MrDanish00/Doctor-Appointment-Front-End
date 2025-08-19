@@ -8,21 +8,26 @@ body{
 }
 
 .reports-div{
-    width: 80%;
+    width: auto;
     margin: 10rem auto;
     /* border: 2px solid; */
     text-align: center;
 }
 .reports-div-2{
     width: 100%;
+    position: relative;
+    /* border: 2px solid; */
 }
 .reports-div-2 h1{
     text-align: left;
+    /* border: 1px solid; */
     font-size: 3rem;
-    margin-left: 32rem;
+    width: 90%;
+    margin: auto;
 }
 
 table{
+    width: 90%;
     margin: 1rem auto;
     padding: 1rem;
 }
@@ -128,10 +133,41 @@ form{
     background-color: rgb(45,85,200);
   }
   .table-rev-btn{
+    font-size: 1.6rem;
+    padding: 1.5rem;
     background-color: rgb(58, 97, 215);
     transition: all 0.5s;
   }
   .table-rev-btn:hover{
     background-color: rgb(45,85,200);
   }
-  
+
+  @media (max-width:650px){
+    html{
+        font-size: 5px;
+    }
+    .reports-div{
+        width: auto;
+    }
+    table{
+        width: 90%;
+    }
+    .reports-div-2 h1{
+        width: 90%;
+    }
+  }
+
+  @media (min-width:650px) and (max-width: 950px){
+    html{
+        font-size: 7px;
+    }
+     .reports-div{
+        width: auto;
+    }
+    table{
+        width: 90%;
+    }
+    .reports-div-2 h1{
+        width: 90%;
+    }
+}
