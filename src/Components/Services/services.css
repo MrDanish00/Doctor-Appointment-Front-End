@@ -24,6 +24,7 @@ body{
 .services-div-1{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .services-img{
     width: 80%;
@@ -48,6 +49,10 @@ body{
       html{
         font-size: 5px;
       }
+      .services{
+        width: 40%;
+        margin: 4rem;
+      }
 } 
 
 @media (min-width:600px) and (max-width:850px){
@@ -56,5 +61,21 @@ body{
     }
     .services h2{
         font-size: 1.6rem;
+    }
+    .services{
+        width: 35%;
+        margin: 4rem;
+    }
+}
+@media (min-width:850px) and (max-width:1150px){
+    html{
+        font-size: 7px;
+    }
+    .services h2{
+        font-size: 1.6rem;
+    }
+    .services{
+        width: 35%;
+        margin: 4rem;
     }
 }

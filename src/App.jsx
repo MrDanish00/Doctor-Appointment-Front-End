@@ -16,6 +16,7 @@ import ReviewForm from './Components/ReviewForm/ReviewForm.jsx';
 import ProfileCard from './Components/ProfileCard/ProfileCard.jsx';
 import ReportsLayout from './Components/ReportsLayout/ReportsLayout.jsx';
 import SelfCheckUp from './Components/SelfCheckUp/SelfCheckUp.jsx';
+import HealthTips from './Components/HealthTips/HealthTips.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -88,6 +89,7 @@ function App() {
                 <Route path='/Doctor-Appointment-Front-End/profile' element={<ProfileCard showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} name={name} setName={setName} appointments={appointments} setAppointments={saveAppointments}/>} />
                 <Route path='/Doctor-Appointment-Front-End/reports' element={<ReportsLayout showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} name={name} setName={setName} appointments={appointments} setAppointments={saveAppointments} />} />
                 <Route path='/Doctor-Appointment-Front-End/self-check-up' element={<SelfCheckUp showNotification={showNotification}  />} />
+                <Route path='/Doctor-Appointment-Front-End/health-tips' element={<HealthTips />} /> 
             </Routes>
         </BrowserRouter>
       </div>

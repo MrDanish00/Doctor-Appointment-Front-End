@@ -30,7 +30,7 @@ function Services(){
                         <h2>Self Check Up</h2>
                     </div>
                     <div className="services">
-                        <a href="#">
+                        <a href="/Doctor-Appointment-Front-End/health-tips">
                             <img className="services-img" src={service4} alt="Health Tips" />
                         </a><br />
                         <h2>Health Tips and Guidance</h2>

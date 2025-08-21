@@ -1,0 +1,73 @@
+html{
+    font-size: 10px;
+}
+
+.health-tips-div{
+    margin-top: 20rem;
+}
+.health-tips-div h1{
+    text-align: center;
+    font-size: 4rem;
+}
+.tips-outer-div{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /* border: 1px  solid; */
+}
+.tips-div{
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 1px 2px 4px  black;
+    width: 25%;
+    margin: 3%;
+    padding: 2rem;
+    text-align: center;
+    transform: scale(1);
+    transition: all 0.5s;
+    border: none;
+}
+.tips-div:hover{
+    transform: scale(1.05);
+}
+.tips-img{
+    width: 70%;
+}
+.tips-p{
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 1rem;
+}
+@media (max-width:400px){
+    html{
+        font-size: 4px;
+    }
+    .tips-div{
+        width: 35%;
+    }
+}
+
+@media (min-width:400px) and (max-width:700px){
+    html{
+        font-size: 5px;
+    }
+    .tips-div{
+        width: 30%;
+    }
+}
+@media (min-width:700px) and (max-width:900px){
+    html{
+        font-size: 6px;
+    }
+    .tips-div{
+        width: 28%;
+    }
+}
+@media(min-width:900px) and (max-width:1024){
+    html{
+        font-size: 7px;
+    }
+    .tips-div{
+        width: 20% !important;
+    }
+}
