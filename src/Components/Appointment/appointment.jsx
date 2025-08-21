@@ -102,7 +102,7 @@ const handleSearch = (searchText) => {
                               Loading doctors...
                           </h3>
                       </center>
-                  ) : isSearched && filteredDoctors.length > 0 ? (
+                  ) : filteredDoctors.length > 0 ? (
                       <center>
                           <h2 style={{ fontSize: "2.5rem" }}>
                               {filteredDoctors.length} doctors are available {searchParams.get("location")}
@@ -110,26 +110,28 @@ const handleSearch = (searchText) => {
                           <h3 style={{ fontSize: "2rem" }}>
                               Book appointments with minimum wait-time & verified doctor details
                           </h3>
-                          {filteredDoctors.length > 0 ? (
-                              filteredDoctors.map((doctor) => (
-                                  <DoctorCard
-                                      appointments={appointments}
-                                      setAppointments={setAppointments}
-                                      showRedNotification={showRedNotification}
-                                      showNotification={showNotification}
-                                      className="doctorcard"
-                                      {...doctor}
-                                      key={doctor.name}
-                                  />
-                              ))
-                          ) : (
-                              ""
-                          )}
+                          {filteredDoctors.map((doctor) => (
+                              <DoctorCard
+                                  appointments={appointments}
+                                  setAppointments={setAppointments}
+                                  showRedNotification={showRedNotification}
+                                  showNotification={showNotification}
+                                  className="doctorcard"
+                                  {...doctor}
+                                  key={doctor.name}
+                              />
+                          ))}
                       </center>
                   ) : (
-                      <h1 className="no-found-h1">No doctors found.</h1>
+                      isSearched && (
+                        <>
+
+                        <h1 className="no-found-h1">No doctors found.</h1>
+                        </>
+                    )
                   )}
               </div>
+
 
       </div>
     </>

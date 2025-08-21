@@ -24,7 +24,7 @@ function Services(){
                         <h2>Book an Appointment</h2>
                     </div>
                     <div className="services">
-                        <a href="#">
+                        <a href="/Doctor-Appointment-Front-End/self-check-up">
                             <img className="services-img" src={service3} alt="Self Check Up" />
                         </a><br />
                         <h2>Self Check Up</h2>

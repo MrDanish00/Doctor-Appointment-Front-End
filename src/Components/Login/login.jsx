@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { useState } from "react";
 import {API_URL} from "../../config.js"
-function Login({showNotification, isLogged, setIsLogged, setName}){
+function Login({showRedNotification,showNotification, isLogged, setIsLogged, setName}){
     const [errors, setErrors] = useState([]);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -32,6 +32,7 @@ function Login({showNotification, isLogged, setIsLogged, setName}){
           }, 2000);}
            else {
             // Properly handle errors as an array
+            // showRedNotification("Invalid Credentials")
             if (json.errors) {
                 setErrors(json.errors);
             } else if (json.error) {

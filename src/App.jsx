@@ -15,6 +15,7 @@ import AptNotification from './Components/AptNotification/AptNotification.jsx';
 import ReviewForm from './Components/ReviewForm/ReviewForm.jsx';
 import ProfileCard from './Components/ProfileCard/ProfileCard.jsx';
 import ReportsLayout from './Components/ReportsLayout/ReportsLayout.jsx';
+import SelfCheckUp from './Components/SelfCheckUp/SelfCheckUp.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -78,14 +79,15 @@ function App() {
             <AptNotification isLogged={isLogged} setIsLogged={setIsLogged}  appointments={appointments} setAppointments={saveAppointments} />
             <Routes >
                 <Route path='/Doctor-Appointment-Front-End/' element={<LandingPage/>} isLogged={isLogged} setIsLogged={setIsLogged}/>
-                <Route path='/Doctor-Appointment-Front-End/signup' element={<SignUp showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}/>}/>
-                <Route path='/Doctor-Appointment-Front-End/login' element={<Login showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
+                <Route path='/Doctor-Appointment-Front-End/signup' element={<SignUp showRedNotification={showRedNotification} showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}/>}/>
+                <Route path='/Doctor-Appointment-Front-End/login' element={<Login showRedNotification={showRedNotification} showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} setName={setName}  />} />
                 <Route path='/Doctor-Appointment-Front-End/services' element={<Services />} />
                 <Route path="/Doctor-Appointment-Front-End/instant-consultation" element={<InstantConsultation appointments={appointments} setAppointments={saveAppointments} isLogged={isLogged} setIsLogged={setIsLogged} showNotification={showNotification}/>} />
                 <Route path="/Doctor-Appointment-Front-End/appointment" element={<Appointment isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showRedNotification={showRedNotification} showNotification={showNotification}/>} />
                 <Route path='/Doctor-Appointment-Front-End/reviews' element={<ReviewForm isLogged={isLogged} setIsLogged={setIsLogged} appointments={appointments} setAppointments={saveAppointments} showNotification={showNotification}/>} />
                 <Route path='/Doctor-Appointment-Front-End/profile' element={<ProfileCard showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} name={name} setName={setName} appointments={appointments} setAppointments={saveAppointments}/>} />
                 <Route path='/Doctor-Appointment-Front-End/reports' element={<ReportsLayout showNotification={showNotification} isLogged={isLogged} setIsLogged={setIsLogged} name={name} setName={setName} appointments={appointments} setAppointments={saveAppointments} />} />
+                <Route path='/Doctor-Appointment-Front-End/self-check-up' element={<SelfCheckUp showNotification={showNotification}  />} />
             </Routes>
         </BrowserRouter>
       </div>
