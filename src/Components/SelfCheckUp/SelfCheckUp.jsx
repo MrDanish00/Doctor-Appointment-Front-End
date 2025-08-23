@@ -24,7 +24,7 @@ function SelfCheckUp(){
                     </>
 
                 )}
-                <button onClick={()=>setReadMore(!readMore)} className="self-thermometer-btn">Read More</button>
+                <button onClick={()=>setReadMore(!readMore)} className="self-thermometer-btn">{readMore ? "Read Less" : "Read More"}</button>
             </div>
         </>
     )

@@ -61,7 +61,7 @@ function SignUp({showNotification, setName}){
 };
 
     return(
-        <>
+        <><br /><br /><br /><br /><br />
         <form action="POST" onSubmit={register}>
 
 

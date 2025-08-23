@@ -1,4 +1,5 @@
 import "./appointment.css"
+// import "./FindDoctor.css"
 import doctorImage from "../../assets/Images/Doctor10.png"
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";

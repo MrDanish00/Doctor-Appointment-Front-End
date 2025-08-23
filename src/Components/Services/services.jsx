@@ -33,7 +33,7 @@ function Services(){
                         <a href="/Doctor-Appointment-Front-End/health-tips">
                             <img className="services-img" src={service4} alt="Health Tips" />
                         </a><br />
-                        <h2>Health Tips and Guidance</h2>
+                        <h2>Health Tips</h2>
                     </div>
 
                 </div>

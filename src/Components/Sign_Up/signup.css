@@ -1,170 +1,184 @@
-html{
-    font-size: 10px;
+html {
+  font-size: 62.5%; /* 1rem = 10px */
 }
 
-body{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background: #f8f9fa;
 }
 
-.signup-div{
-    width: 50%;
-    margin: auto;
-    margin-top: 15rem;
-    background-color: rgb(240, 240, 240);
-    text-align: center;
-    font-size: 1.8rem;
+/* Signup container */
+.signup-div {
+  width: 40%;
+  margin: 10rem auto;
+  background-color: rgb(240, 240, 240);
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-div h1 {
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
+}
+
+/* "Already a member?" */
+.signup-div-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.6rem;
+}
+.signup-div-1 a {
+  text-decoration: none;
+  color: rgb(67, 186, 207);
+}
+.signup-div a:hover {
+  text-decoration: underline;
+}
+
+/* Form */
+.signup-form {
+  width: 90%;
+  margin: 2rem auto;
+  text-align: left;
+}
+.signup-form label {
+  display: block !important;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+.signup-form input,
+.list-box {
+  display: block;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+  outline: none;
+  transition: 0.3s;
+}
+.signup-form input:focus,
+.list-box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* Buttons */
+.signup-btn,
+.reset-btn {
+  width: 100%;
+  padding: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.signup-btn {
+  background-color: rgb(58, 97, 215);
+  color: white;
+}
+.signup-btn:hover {
+  background-color: rgb(45, 85, 200);
+}
+.reset-btn {
+  margin-top: 1rem;
+  background-color: rgb(217, 59, 59);
+  color: white;
+}
+.reset-btn:hover {
+  background-color: rgb(200, 45, 59);
+}
+
+/* Forgot Password */
+.frget-password {
+  display: block;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: black;
+  text-decoration: none;
+}
+.frget-password:hover {
+  text-decoration: underline;
+}
+
+/* Notification */
+.signup-notification {
+  display: none;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 400px;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(88, 184, 88);
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+  z-index: 2000;
+}
+
+/* ---------------- Responsive ---------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .signup-div {
+    width: 60%;
+    margin-top: 8rem;
+    padding: 2.5rem;
+  }
+}
+
+/* Mobile large */
+@media (max-width: 768px) {
+  .signup-div {
+    width: 80%;
+    margin-top: 6rem;
     padding: 2rem;
-    border-radius: 1rem;
+  }
+  .signup-div h1 {
+    font-size: 2rem;
+  }
 }
 
-.signup-div-1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.6rem;
-}
-.signup-div-1 a{
-    text-decoration: none;
-    color: rgb(67, 186, 207);
-}
-.signup-div a:hover{
-    text-decoration: underline;
-}
-.signup-form{
-    width: 90%;
-    margin: 1rem auto;
-    /* border: 1px solid black; */
-    text-align: left;
-    /* position: relative; */
-    /* border: 1px solid; */
-    
-}
-.signup-form label{
-
-    display: block !important;
-    font-weight: 700;
-    font-size: 1.6rem;
-    text-align: left;
-    /* background-color: red; */
-    margin-bottom: 1.5rem; 
-}
-.signup-form input{
-    display: block;
-    width: 100%;
-    padding: 1rem 1.5rem;
-    font-size: 1.6rem;
-    border-radius: 0.5rem;
-    border: none;
-    margin-bottom: 1.5rem; 
-}
-#role-label{
-    margin-bottom: 0rem;
-}
-.signup-btn{
-    width: 100%;
-    padding: 1.5rem 1.5rem;
-    background-color: rgb(58, 97, 215);
-    color: white;
-    cursor: pointer;
-    border: none;
-    font-weight: 700;
-    transition: all 0.5s;
-    border-radius: 0.5rem;
-}
-.signup-btn:hover{
-    background-color: rgb(45,85,200);
-}
-.reset-btn{
-    width: 100%;
-    padding: 1.5rem 1.5rem;
-    background-color: rgb(217, 59, 59);
-    color: white;
-    cursor: pointer;
-    border: none;
-    font-weight: 700;
-    transition: all 0.5s;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-}
-
-.reset-btn:hover{
-    background-color: rgb(200,45,59);
-}
-
-.frget-password{
-    display: block;
-    color: black;
-    font-size: 1.6rem;
-    text-align: center;
-    margin: auto;
-    text-decoration: none;
-    margin-top: 1.5rem;
-
-}
-.frget-password:hover{
-    text-decoration: underline;
-}
-
-.list-box{
-    width: 100%;
+/* Mobile small */
+@media (max-width: 480px) {
+  .signup-div {
+    width: 95%;
+    margin-top: 4rem;
     padding: 1.5rem;
-    font-size: 1.6rem;
-    border-radius: 0.5rem;
-    border: none;
-    
-    
-}
-
-.list-box:focus{
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0,123,255,0.4);
-}
-
-.signup-notification{
-    display: none;
-    position: fixed;
-    top: 0px;
-    left: 35%;
-    width: 30%;
-    height: 10%;
-    border: 1px solid;
-    border-radius: 1rem;
-    background-color: rgb(88, 184, 88);
-    color: white;
-    font-size: 1.6rem;
-    text-align: center;
-    align-content: center;
-    transform: translateY(20%);
-    transition: all 0.5s;
-}
-
-@media (max-width:750px){
-    html{
-        font-size: 5px;
-    }
-    .list-box{
-        width: 100%;
-    }
-    .signup-div{
-        width: 60%;
-    }
-}
-@media (min-width:750px) and (max-width:900px){
-    html{
-        font-size: 7px;
-    }
-    .list-box{
-        width: 100%;
-    }
-}
-
-@media (min-width:900px) and (max-width:1100px){
-    html{
-        font-size: 8px;
-    }
-   
+  }
+  .signup-div h1 {
+    font-size: 1.8rem;
+  }
+  .signup-form label {
+    font-size: 1.4rem;
+  }
+  .signup-form input,
+  .list-box {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+  .signup-btn,
+  .reset-btn {
+    font-size: 1.4rem;
+    padding: 1.2rem;
+  }
+  .frget-password {
+    font-size: 1.4rem;
+  }
 }
